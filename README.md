@@ -39,6 +39,7 @@ This MVP uses lightweight “AI-style” techniques:
 1) Install dependencies (Streamlit deploys using `requirements.txt`, and local runs should match that). :contentReference[oaicite:1]{index=1}  
 ```bash
 pip install -r requirements.txt
+
 2) Start the app:
 streamlit run app.py
 
