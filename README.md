@@ -43,15 +43,16 @@ pip install -r requirements.txt
 streamlit run app.py
 
 Data
-Supplier data lives in westmoreland_seed_suppliers.csv (example fields):
-supplier_name, city/state/zip
-capability_tags, process_tags, material_tags
-website, phone, email
-Short Description
+- Supplier data lives in westmoreland_seed_suppliers.csv (example fields):
+- supplier_name, city/state/zip
+- capability_tags, process_tags, material_tags
+- website, phone, email
+- Short Description
 
 Deployment
-Deployed on Streamlit Community Cloud from this GitHub repo. Streamlit Cloud installs dependencies from requirements.txt during build.
+- Deployed on Streamlit Community Cloud from this GitHub repo.
+- Streamlit Cloud installs dependencies from requirements.txt during build.
 
 Notes
-No secrets/keys required.
-All data is local (CSV) for an easy-to-review competition MVP.
+- No secrets/keys required.
+- All data is local (CSV) for an easy-to-review competition MVP.
