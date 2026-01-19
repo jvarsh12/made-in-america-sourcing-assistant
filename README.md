@@ -41,6 +41,7 @@ This MVP uses lightweight “AI-style” techniques:
 pip install -r requirements.txt
 2) Start the app:
 streamlit run app.py
+
 Data
 Supplier data lives in westmoreland_seed_suppliers.csv (example fields):
 supplier_name, city/state/zip
