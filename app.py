@@ -9,7 +9,7 @@ import folium
 from streamlit_folium import st_folium
 from collections import defaultdict
 
-# ✅ must be the first Streamlit command
+# the first Streamlit command
 st.set_page_config(page_title="Buy American", layout="wide", initial_sidebar_state="collapsed")  # :contentReference[oaicite:4]{index=4}
 
 
@@ -28,9 +28,6 @@ def fuzzy_relevance(query, text):
     return fuzz.token_set_ratio(query, text) / 100
 
 
-# @st.cache_data
-# def load_data():
-#     return pd.read_csv("westmoreland_seed_suppliers.csv")
 @st.cache_data
 def load_data():
     df = pd.read_csv("westmoreland_seed_suppliers.csv", dtype={"zip": str})
@@ -194,7 +191,7 @@ div[data-testid="stExpanderDetails"] {
 
 
 # -----------------------------
-# Header layout (unchanged)
+# Header layout
 # -----------------------------
 trump_img = image_to_base64("assets/trump.jpg")
 melania_img = image_to_base64("assets/melania.png")
@@ -240,26 +237,7 @@ with right_col:
 
 st.divider()
 
-# -----------------------------
-# Collapsible impact/policy section (big UX improvement)
-# -----------------------------
-# with st.expander("US Community Impact & Policy Alignment", expanded=False):  # :contentReference[oaicite:5]{index=5}
-#     st.info(
-#         """
-#         **Problem:**  
-#         Small businesses often rely on distant or overseas suppliers because they lack visibility into nearby American manufacturers.
 
-#         **Our Solution:**  
-#         This tool uses AI-powered matching and local distance ranking to help businesses quickly identify **nearby U.S. manufacturers**, 
-#         reducing shipping costs, strengthening local supply chains, and supporting American jobs.
-
-#         **Impact:**  
-#         - Encourages *Buy American* purchasing decisions  
-#         - Strengthens local manufacturing ecosystems  
-#         - Helps small businesses source faster and more efficiently  
-#         - Supports domestic economic growth at the community level
-#         """
-#     )
 with st.expander("US Community Impact & Policy Alignment", expanded=False):
     st.markdown(
         """
@@ -292,7 +270,7 @@ with st.expander("US Community Impact & Policy Alignment", expanded=False):
     )
 
 # -----------------------------
-# Sidebar inputs (cleaner main page)  :contentReference[oaicite:6]{index=6}
+# Sidebar inputs (cleaner main page)  :contentReference[oaicite:6]{index=6
 # -----------------------------
 with st.sidebar:
     st.header("Search")
@@ -314,7 +292,7 @@ buyer_lat, buyer_lon = zip_to_latlon(buyer_zip)
 df = load_data()
 
 # -----------------------------
-# Main logic (unchanged)
+# Main logic
 # -----------------------------
 results = None
 if query:
@@ -371,12 +349,7 @@ with tab_results:
     if results is None or results.empty:
         st.info("Enter a need in the sidebar to see results.")
     else:
-        # quick “dashboard” metrics
         best = results.iloc[0]
-        # c1, c2, c3 = st.columns(3)
-        # c1.metric("Top supplier", best["supplier_name"])
-        # c2.metric("Best score", f"{best['final_score']:.2f}")
-        # c3.metric("Closest (miles)", f"{results['distance_miles'].min():.1f}")
         best = results.iloc[0]
         closest = results["distance_miles"].min()
 
@@ -407,7 +380,7 @@ with tab_results:
                 "relevance_score": st.column_config.NumberColumn("Relevance", format="%.2f"),
                 "final_score": st.column_config.NumberColumn("Overall score", format="%.2f"),
 
-                # ✅ Option B: show domain only, still clickable
+                # show domain only, still clickable
                 "website": st.column_config.LinkColumn(
                     "Website",
                     display_text=r"https?://(?:www\.)?([^/]+)"
@@ -423,59 +396,7 @@ with tab_results:
                 "distance_miles","relevance_score","final_score","website"
             ],
         )
-
-        # st.dataframe(
-        #     results[[
-        #         "supplier_name","city","state","zip",
-        #         "capability_tags","process_tags",
-        #         "distance_miles","relevance_score","final_score","website"
-        #     ]],
-        #     use_container_width=True,
-        #     hide_index=True,
-        #     column_config={
-        #         "supplier_name": st.column_config.TextColumn("Supplier"),
-        #         "capability_tags": st.column_config.TextColumn("Capabilities"),
-        #         "process_tags": st.column_config.TextColumn("Processes"),
-        #         "distance_miles": st.column_config.NumberColumn("Distance (miles)", format="%.1f"),
-        #         "relevance_score": st.column_config.NumberColumn("Relevance", format="%.2f"),
-        #         "final_score": st.column_config.NumberColumn("Overall score", format="%.2f"),
-        #         "website": st.column_config.LinkColumn("Website"),
-        #         "zip": st.column_config.TextColumn("ZIP")
-        #         "city": st.column_config.TextColumn("City")
-        #         "state": st.column_config.TextColumn("State")
-        #     },
-        #     column_order=[
-        #         "supplier_name","city","state","zip",
-        #         "capability_tags","process_tags",
-        #         "distance_miles","relevance_score","final_score","website"
-        #     ],
-        # )
-
-        # st.dataframe(
-        #     results[
-        #         [
-        #             "supplier_name",
-        #             "city",
-        #             "state",
-        #             "zip",
-        #             "capability_tags",
-        #             "process_tags",
-        #             "distance_miles",
-        #             "relevance_score",
-        #             "final_score",
-        #         ]
-        #     ].rename(
-        #         columns={
-        #             "supplier_name": "Supplier Name",
-        #             "distance_miles": "Distance (miles)",
-        #             "relevance_score": "Relevance",
-        #             "final_score": "Overall score",
-        #         }
-        #     ),
-        #     use_container_width=True,
-        #     hide_index=True,
-        # )
-
+      
 with tab_map:
     st.subheader("Supplier Locations (Top 5 Matches)")
 
@@ -557,3 +478,4 @@ with tab_highlights:
                     st.markdown(f"📞 Phone: {phone}")
                 if email:
                     st.markdown(f"✉️ Email: {email}")
+
