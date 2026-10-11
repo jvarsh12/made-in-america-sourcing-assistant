@@ -405,7 +405,12 @@ with tab_map:
     elif buyer_lat is None or buyer_lon is None:
         st.info("Buyer location not available for map display.")
     else:
-        m = folium.Map(location=[buyer_lat, buyer_lon], tiles="CartoDB positron", zoom_start=9)
+        m = folium.Map(
+            location=[buyer_lat, buyer_lon],
+            tiles="OpenStreetMap",
+            zoom_start=9,
+            control_scale=True
+        )
         bounds = []
 
         folium.Marker(
