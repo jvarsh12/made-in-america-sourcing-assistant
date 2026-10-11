@@ -200,7 +200,7 @@ left_col, right_col = st.columns([3, 1])
 
 with left_col:
     st.markdown('<div class="gov-title">🔧 Made-in-America Sourcing Assistant</div>', unsafe_allow_html=True)
-    st.markdown('<div class="gov-subtitle">AI-powered matching + distance ranking to help small businesses discover nearby U.S. manufacturers.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="gov-subtitle">Python-based supplier matching + explainable distance ranking to help small businesses discover nearby U.S. manufacturers.</div>', unsafe_allow_html=True)
 
 
 with right_col:
@@ -252,7 +252,7 @@ with st.expander("US Community Impact & Policy Alignment", expanded=False):
           <div class="policy-card">
             <div class="policy-h">⚙️ Our Solution</div>
             <div class="policy-b">
-              AI-powered matching + distance ranking helps quickly identify nearby U.S. manufacturers to source faster and reduce shipping delays.
+              Python-based fuzzy matching and explainable distance ranking help small businesses discover nearby U.S. manufacturers, simplify supplier selection, and support local sourcing.
             </div>
           </div>
 
