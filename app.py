@@ -275,7 +275,7 @@ with st.expander("US Community Impact & Policy Alignment", expanded=False):
 with st.sidebar:
     st.header("Search")
     query = st.text_input(
-        "Describe what you need",
+        "Describe what you need", value="CNC aluminum turning",
         placeholder="e.g., CNC aluminum turning, stainless spacer, grinding service",
     )
     buyer_zip = st.text_input("Buyer ZIP code", value="15601")
