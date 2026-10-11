@@ -10,7 +10,7 @@ from streamlit_folium import st_folium
 from collections import defaultdict
 
 # the first Streamlit command
-st.set_page_config(page_title="Buy American", layout="wide", initial_sidebar_state="collapsed")  # :contentReference[oaicite:4]{index=4}
+st.set_page_config(page_title="Buy American", layout="wide", initial_sidebar_state="expanded")  # :contentReference[oaicite:4]{index=4}
 
 
 def image_to_base64(path):
